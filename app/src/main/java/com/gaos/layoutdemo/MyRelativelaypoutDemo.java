@@ -32,6 +32,7 @@ public class MyRelativelaypoutDemo extends RelativeLayout {
         inflate(context, R.layout.layout_child1, this);
         inflate(context, R.layout.layout_child2, this);
         initChildVisiable();
+
     }
 
     private void initChildVisiable() {

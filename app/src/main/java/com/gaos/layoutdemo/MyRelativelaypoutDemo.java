@@ -32,7 +32,31 @@ public class MyRelativelaypoutDemo extends RelativeLayout {
         inflate(context, R.layout.layout_child1, this);
         inflate(context, R.layout.layout_child2, this);
         initChildVisiable();
+    }
 
+    /**
+     * 无论是用在xml里还是在java代码里；
+     * 在创建自定义layout时，onSizeChanged都将被调用；
+     * 且仅仅调用一次；
+     * 在onLayout之前被调用。
+     * <p>
+     * log日志
+     * <p>
+     * 10-17 15:43:40.096 25364-25364/? E/MyRelativelaypoutDemo: onViewAdded:
+     * 10-17 15:43:40.098 25364-25364/? E/MyRelativelaypoutDemo: onViewAdded:
+     * 10-17 15:43:40.153 25364-25364/? E/MyRelativelaypoutDemo: onSizeChanged: h = 1602
+     * 10-17 15:43:40.154 25364-25364/? E/MyRelativelaypoutDemo: onLayout: measuredWidth = 984 ; measuredHeight = 1602
+     * 10-17 15:43:40.154 25364-25364/? E/MyRelativelaypoutDemo: onLayout: measuredWidth = 0 ; measuredHeight = 0
+     *
+     * @param w
+     * @param h
+     * @param oldw
+     * @param oldh
+     */
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        Log.e(TAG, "onSizeChanged: h = " + h);
     }
 
     private void initChildVisiable() {
